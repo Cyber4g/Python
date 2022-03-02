@@ -88,13 +88,14 @@ def xml_file():  # работа с xml файлами
 
 def zip(input_file):  # работа с архивами
     try:
+        dir = os.path.abspath(os.curdir)
         filee = input_file
         file_cut = os.path.basename(filee)
 
         path = filee
         cut_path = path.replace(file_cut, '')
         file_source = cut_path
-        file_destination = r'C:\Users\Hap12\PycharmProjects\rabota1'
+        file_destination = dir
 
         for file in Path(file_source).glob(file_cut):
             shutil.copy(os.path.join(file_source, file), file_destination)
